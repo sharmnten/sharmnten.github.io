@@ -4,75 +4,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neal Sharma - Programmer/Student</title>
+    <title>Neal Sharma - Cyber Innovator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        *{
-            font-family: "Source Code Pro", source sans;
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #00ff00;
+            --neon-color: #39ff14;
+            --accent-color: #ff00ff;
+            --glass-bg: rgba(255, 255, 255, 0.1);
         }
-        body {
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #000000; /* Black background */
-            color: #00ff00; /* Green text color */
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Roboto Mono', monospace;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 255, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         header {
-            background-color: #001100; /* Dark green header background */
-            color: #00ff00; /* Green header text color */
-            padding: 20px;
-            text-align: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        h1, h2 {
-            margin: 10px 0;
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 10px;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--neon-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        nav ul li a:hover::before {
+            transform: scaleX(1);
+        }
+
+        nav ul li a:hover {
+            color: var(--neon-color);
+            text-shadow: 0 0 5px var(--neon-color);
         }
 
         main {
-            padding: 20px;
+            padding: 100px 0;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 255, 0, 0.1), rgba(255, 0, 255, 0.1));
+            filter: blur(100px);
+            z-index: -1;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: neonFlicker 1.5s infinite alternate;
+        }
+
+        @keyframes neonFlicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow:
+                    0 0 7px var(--neon-color),
+                    0 0 10px var(--neon-color),
+                    0 0 21px var(--neon-color),
+                    0 0 42px var(--neon-color),
+                    0 0 82px var(--neon-color),
+                    0 0 92px var(--neon-color),
+                    0 0 102px var(--neon-color),
+                    0 0 151px var(--neon-color);
+            }
+            20%, 24%, 55% {       
+                text-shadow: none;
+            }
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+        }
+
+        .github-stats {
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .github-stats img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .github-stats img:hover {
+            transform: scale(1.05);
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
 
         .project {
-            background-color: #001100; /* Dark green project background */
-            border: 1px solid #00ff00; /* Green project border */
-            border-radius: 5px;
-            padding: 20px;
-            margin-bottom: 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .project:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 0, 0.2);
+        }
+
+        .project h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--neon-color);
         }
 
         footer {
-            background-color: #001100; /* Dark green footer background */
-            color: #00ff00; /* Green footer text color */
-            padding: 10px 0;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            color: var(--text-color);
             text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            padding: 20px 0;
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--neon-color);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
     <header>
-        <h1>Neal Sharma - Programmer/Student</h1>
-        <h2>Welcome to My Website</h2>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-<img id="stats" src="https://github-readme-stats.vercel.app/api?username=sharmnten&theme=dark&icon_color=00ff00&bg_color=DEG,001100,181818&title_color=00ff00&text_color=c4c4c4&show_icons=true" alt="GitHub Stats">        
-        <div class="project">
-            <h2>Project: Onion's Life</h2>
-            <p>Description: This is the hit game Onion's Life, created using Kaboom.js.</p>
-        </div>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Neal Sharma</h1>
+                <h2>Cyber Innovator | Code Alchemist</h2>
+                <p>Forging the future through lines of code and digital alchemy.</p>
+            </div>
+        </section>
+
+        <section class="github-stats">
+            <div class="container">
+                <img id="stats" src="https://github-readme-stats.vercel.app/api?username=sharmnten&theme=dark&icon_color=00ff00&bg_color=DEG,001100,181818&title_color=00ff00&text_color=c4c4c4&show_icons=true" alt="GitHub Stats">
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>Digital Creations</h2>
+                <div class="projects-grid">
+                    <div class="project">
+                        <h3>Onion's Life</h3>
+                        <p>A mind-bending game crafted with Kaboom.js, where players navigate the surreal layers of an onion's existence in a digital realm.</p>
+                    </div>
+                    <div class="project">
+                        <h3>Onion's Life 2</h3>
+                        <p>A refresh of the original game, made in Godot Engine</p>
+                    </div>
+                    <div class="project">
+                        <h3>Procedural Monster Fight</h3>
+                        <p>More details coming soon!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Neal Sharma</p>
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2024 Neal Sharma | Crafting Digital Realities</p>
+            <div class="social-icons">
+                <a href="https://github.com/sharmnten" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
     </footer>
-
 </body>
 
 </html>
