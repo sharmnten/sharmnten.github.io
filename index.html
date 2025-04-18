@@ -278,26 +278,21 @@
             <div class="container">
                 <h2>Digital Creations</h2>
                 <div class="projects-grid">
-                    <div class="project">
+                    <div id="onionslife" class="project">
                         <h3>Onion's Life</h3>
                         <p>A classic platformer game crafted with Kaboom.js, where players navigate the surreal layers of an onion's existence in a digital realm.</p>
                     </div>
                     <br/>
-                    <div class="project">
+                    <div id="onionslife2" class="project">
                         <h3>Onion's Life 2</h3>
                         <p>A refresh of the original game, made in Godot Engine</p>
                     </div>
                     <br/>
-                    <div class="project">
-                        <h3>Procedural Monster Fight</h3>
-                        <p>More details coming soon!</p>
+                    <div id='badgerbets' class="project">
+                        <h3>BadgerBets</h3>
+                        <p>A unique FRC scouting solution.</p>
                     </div>
                 </div>
-                <br/>
-                 <div class="project">
-                        <h3>ChronoLith</h3>
-                        <p>A social platform built in React, with time as a central aspect.</p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -313,6 +308,21 @@
             </div>
         </div>
     </footer>
+<script>
+    const ol2 = document.getElementById('onionslife2');
+    const badgerbets = document.getElementById('badgerbets');
+    const ol = document.getElementById('onionslife');
+    ol2.addEventListener('click', () => {
+        window.location.href = 'https://2.onions.life';
+    });
+    badgerbets.addEventListener('click', () => {
+        window.location.href = 'https://github.com/team1306/BadgerBets';
+    });
+    ol.addEventListener('click', () => {
+        window.location.href = 'https://play.onions.life';
+    });
+</script>
 </body>
+
 
 </html>
