@@ -229,7 +229,27 @@
 
         .social-icons a:hover {
             color: var(--neon-color);
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.2) rotate(-10deg);
+        }
+        .social-icons a .fa-github {
+            transition: transform 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55), filter 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .social-icons a .fa-github {
+            transition: transform 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55), filter 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .social-icons a:hover .fa-github {
+            animation: github-wiggle 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 1;
+            /* After animation, keep enlarged and glowing */
+            transform: scale(1.25);
+            filter: drop-shadow(0 0 16px var(--neon-color));
+        }
+        @keyframes github-wiggle {
+            0% { transform: scale(1.25) rotate(0deg); }
+            20% { transform: scale(1.25) rotate(-15deg); }
+            40% { transform: scale(1.25) rotate(12deg); }
+            60% { transform: scale(1.25) rotate(-10deg); }
+            80% { transform: scale(1.25) rotate(7deg); }
+            100% { transform: scale(1.25) rotate(0deg); }
         }
 
         @media (max-width: 768px) {
